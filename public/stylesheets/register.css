@@ -18,6 +18,8 @@
 .register .box-button{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 .register .box-button input{
@@ -30,4 +32,9 @@
 
 .register .box-button button:last-child{
     margin-left: 10px;
+}
+
+.register .box-button button{
+    padding: 5px;
+    width: 120px;
 }

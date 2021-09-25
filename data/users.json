@@ -1,0 +1,18 @@
+[
+   {
+      "id": 1,
+      "name": "Patricia",
+      "email": "patricia.soledad0395@gmail.com",
+      "password": "$2a$10$eVSJJojtTFmTjXBJDApawu3wRyuBYFA/IjjjX.grP2earmFd/j6S6",
+      "avatar": "default.jpg",
+      "rol": "admin"
+   },
+   {
+      "id": 2,
+      "name": "Ezequiel",
+      "email": "ezequie@gmail.com",
+      "password": "$2a$10$3IkhaVt1KvFDhGisLsAkS.sI9tr.Ip2OMhGouPgW5/CX45A0nb2B.",
+      "avatar": "default.jpg",
+      "rol": "user"
+   }
+]

@@ -1,22 +1,26 @@
 [
    {
-      "id": "1",
-      "name": "Motorola",
+      "id": 1,
+      "name": "Moto G30 128 GB",
       "description": "eget rutrum at lorem integer tincidunt ante vel ipsum praesent",
       "price": 200,
       "discount": 5,
       "category": "nuevo",
-      "image": "img-phone-03.jpg",
+      "image": [
+         "img-phone-03.jpg"
+      ],
       "features": []
    },
    {
       "id": 2,
       "name": "luctus",
       "description": "habitasse platea dictumst aliquam augue quam sollicitudin vitae",
-      "category": "gratis",
       "price": 500,
       "discount": 15,
-      "image": "img-phone-03.jpg",
+      "category": "gratis",
+      "image": [
+         "img-phone-03.jpg"
+      ],
       "features": [
          "Pantalla: 6",
          "Camara: 12mpx",
@@ -30,7 +34,9 @@
       "category": "oferta",
       "price": 300,
       "discount": 10,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 5",
          "Camara: 12mpx",
@@ -44,7 +50,9 @@
       "category": "nuevo",
       "price": 120,
       "discount": 10,
-      "image": "img-phone-02.jpg",
+      "image": [
+         "img-phone-02.jpg"
+      ],
       "features": [
          "Pantalla: 5.5",
          "Camara: 8mpx",
@@ -58,7 +66,9 @@
       "category": "nuevo",
       "price": 150,
       "discount": 10,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 5.6",
          "Camara: 12mpx",
@@ -72,7 +82,9 @@
       "category": "oferta",
       "price": 650,
       "discount": 10,
-      "image": "img-phone-02.jpg",
+      "image": [
+         "img-phone-02.jpg"
+      ],
       "features": [
          "Pantalla: 5",
          "Camara: 8mpx",
@@ -86,7 +98,9 @@
       "category": "nuevo",
       "price": 430,
       "discount": 10,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 5.1",
          "Camara: 12mpx",
@@ -100,7 +114,9 @@
       "category": "gratis",
       "price": 180,
       "discount": 10,
-      "image": "img-phone-03.jpg",
+      "image": [
+         "img-phone-03.jpg"
+      ],
       "features": [
          "Pantalla: 6.",
          "Camara: 8mpx",
@@ -114,7 +130,9 @@
       "category": "gratis",
       "price": 240,
       "discount": 10,
-      "image": "img-phone-02.jpg",
+      "image": [
+         "img-phone-02.jpg"
+      ],
       "features": [
          "Pantalla: 6.1",
          "Camara: 12mpx",
@@ -128,7 +146,9 @@
       "category": "gratis",
       "price": 190,
       "discount": 10,
-      "image": "img-phone-03.jpg",
+      "image": [
+         "img-phone-03.jpg"
+      ],
       "features": [
          "Pantalla: 4.1",
          "Camara: 16mpx",
@@ -142,7 +162,9 @@
       "category": "nuevo",
       "price": 450,
       "discount": 10,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 6",
          "Camara: 22mpx",
@@ -156,7 +178,9 @@
       "category": "nuevo",
       "price": 290,
       "discount": 10,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 7",
          "Camara: 16mpx",
@@ -170,7 +194,9 @@
       "category": "oferta",
       "price": 170,
       "discount": 10,
-      "image": "img-phone-03.jpg",
+      "image": [
+         "img-phone-03.jpg"
+      ],
       "features": [
          "Pantalla: 6.1",
          "Camara: 12mpx",
@@ -184,7 +210,9 @@
       "category": "oferta",
       "price": 200,
       "discount": 10,
-      "image": "img-phone-02.jpg",
+      "image": [
+         "img-phone-02.jpg"
+      ],
       "features": [
          "Pantalla:5.7",
          "Camara: 12mpx",
@@ -198,7 +226,9 @@
       "category": "oferta",
       "price": 300,
       "discount": 5,
-      "image": "img-phone-01.jpg",
+      "image": [
+         "img-phone-01.jpg"
+      ],
       "features": [
          "Pantalla: 5.1",
          "Camara: 12mpx",
@@ -206,33 +236,43 @@
       ]
    },
    {
-      "id": 17,
-      "name": "Samsung Galaxy",
-      "description": "Posee una memoria interna (ROM) de 128GB* de almacenamiento mientras que la externa se puede expandir mediante una tarjeta micro SD hasta 1TB. Vas a poder almacenar videos, fotos y música sin problemas.",
-      "price": 75000,
-      "discount": 20,
-      "category": "oferta",
-      "image": "default.jpg",
-      "features": []
-   },
-   {
-      "id": "18",
+      "id": 18,
       "name": "Samsung A10",
       "description": "Posee una memoria interna (ROM) de 128GB* de almacenamiento mientras que la externa se puede expandir mediante una tarjeta micro SD hasta 1TB. Vas a poder almacenar videos, fotos y música sin problemas.",
       "price": 35000,
       "discount": 20,
       "category": "nuevo",
-      "image": "default.jpg",
+      "image": [
+         "default.jpg"
+      ],
       "features": []
    },
    {
-      "id": 19,
-      "name": "Moto G30 128 GB",
-      "description": "Pantalla IPS de 6.5 \".\r\nTiene 4 cámaras traseras de 64Mpx/8Mpx/2Mpx/2Mpx.\r\nCámara delantera de 13Mpx.\r\nProcesador Snapdragon 662 Octa-Core de 2GHz con 4GB de RAM.\r\nBatería de 5000mAh.\r\nMemoria interna de 128GB.\r\nResistente a las salpicaduras.",
-      "price": 36000,
-      "discount": 5,
-      "category": "oferta",
-      "image": "default.jpg",
+      "id": 24,
+      "name": "Otro producto",
+      "description": "producto con muchas imagenes",
+      "price": 100,
+      "discount": 4,
+      "category": "nuevo",
+      "image": [
+         "img-phone-1632426596941.png",
+         "img-phone-1632426596942.png",
+         "img-phone-1632426596942.png"
+      ],
+      "features": []
+   },
+   {
+      "id": 25,
+      "name": "producto nuevo",
+      "description": "productos con muchas imagenes",
+      "price": 123,
+      "discount": 4,
+      "category": "nuevo",
+      "image": [
+         "img-phone-1632427973484.png",
+         "img-phone-1632427973486.png",
+         "img-phone-1632427973486.png"
+      ],
       "features": []
    }
 ]

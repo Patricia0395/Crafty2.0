@@ -1,9 +1,14 @@
+const { rejects } = require('assert');
+const { validationResult } = require('express-validator');
 const fs = require ('fs');
 const path = require ('path');
 const { runInNewContext } = require('vm');
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'));
 let categories = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'categories.json'), 'utf-8'));
+
+
 const firstLetter = require("../utils/firstLetter");
+
 
 
 module.exports = {
@@ -13,59 +18,100 @@ module.exports = {
             firstLetter
         })
     },
-    store: (req, res) =>{
+    store : (req,res) => {
+        let errors = validationResult(req);
 
-        const {name, description,price,discount, category} = req.body;
+        let images = req.files.map(image => image.filename);
 
-        let product ={
-            id : products[products.length - 1].id + 1,
-            name: name.trim(),
-            description: description.trim(), 
-            price: +price,
-            discount : +discount,
-            category,
-            image: 'default.jpg',
-            features: []
-        }
-     
-        products.push(product);
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'),JSON.stringify(products, null,3),'utf-8');
+        if(errors.isEmpty()){
+            const {name,description,price,discount,category} = req.body;
 
-        return res.redirect('/admin')
-    },
+            let product = {
+                id : products[products.length - 1].id + 1,
+                name : name.trim(),
+                description : description.trim(),
+                price : +price,
+                discount : +discount,
+                category,
+                image : req.files.length != 0 ? images : ['default.jpg'],
+                features : []
+            }
+            products.push(product);
+
+            fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(products,null,3),'utf-8');
     
+            return res.redirect('/admin')
+        }else{
+            return res.render('productAdd',{
+                categories,
+                firstLetter,
+                errors : errors.mapped(),
+                old : req.body
+            })
+        }
+    },
+    detail : (req,res) => {
+    
+        let product = products.find(product => product.id === +req.params.id);
+
+        return res.render('productDetail',{
+            product,
+            products : products.filter(product => product.category === products.category)
+        })
+    },
+    edit : (req,res) => {
+        return res.render('productEdit',{
+            product : products.find(product => product.id === +req.params.id),
+            categories,
+            firstLetter,
+        })
+    },
     detail : (req, res) =>{
         return res.render('productDetail', {
             product : products.find(product => product.id === +req.params.id)
         })
     },
-    edit : (req, res) => {
-       return res.render('productEdit',{
-        product : products.find(product => product.id === +req.params.id), 
-        categories,
-        firstLetter 
-    })
-},
-update : (req, res) => {
+     edit : (req,res) => {
+        return res.render('productEdit',{
+            product : products.find(product => product.id === +req.params.id),
+            categories,
+            firstLetter,
+        })
+    },
+    update : (req,res) => {
+        let errors = validationResult(req);
 
-    const {name, description,price,discount, category} = req.body;
-let product = products.find(product => product.id === +req.params.id)
-    let productModified ={
-        id : +req.params.id,
-        name: name.trim(),
-        description: description.trim(), 
-        price: +price,
-        discount : +discount,
-        category,
-        image: product.image,
-        features: []
-    }
- 
-    let productsModified = products.map(product => product.id === +req.params.id ? productModified : product );
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'),JSON.stringify(productsModified, null,3),'utf-8');
-
-        return res.redirect('/admin')
-},
+        if(errors.isEmpty()){
+            const {name,description,price,discount,category} = req.body;
+            let product = products.find(product => product.id === +req.params.id);
+    
+            let productModified = {
+                id : +req.params.id,
+                name : name.trim(),
+                description : description.trim(),
+                price : +price,
+                discount : +discount,
+                category,
+                image : product.image,
+                features : product.features
+            }
+    
+            let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
+    
+            fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(productsModified,null,3),'utf-8');
+    
+            return res.redirect('/admin')
+        }else{
+            return res.render('productEdit',{
+                product : products.find(product => product.id === +req.params.id),
+                categories,
+                firstLetter,
+                errors : errors.mapped(),
+                
+            })
+        }
+      
+    },
 search : (req, res) => res.render('admin', {
     title : 'Resultado de la búsqueda',
     categories,
@@ -78,6 +124,12 @@ filter : (req, res) => res.render('admin', {
     products : products.filter(product => product.category === req.query.category)
 }),
 destroy : (req, res) => {
+let product = products.find(product => product.id === +req.params.id);
+
+product.image.forEach(img => {
+    fs.existsSync(path.join(dirname_,'../public/images/products', img)) ? fs.unlinSync(path.join(__dirname,'../public/images/products', img)) : null
+});
+
 let productsModified = products.filter(product => product.id !== +req.params.id);
 
 fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'),JSON.stringify(productsModified, null,3),'utf-8');
